@@ -62,5 +62,20 @@ for i in range(rowno):
     if(sum > max):
         max = sum
 print("L-Inf Norm: "+max)
+ 
+#Frobenius Norm
 
-#Frobenius
+from math import sqrt
+
+def CalculateFrobenius(iteration_matrix):
+	sum= 0
+	for i in range(size):
+		for j in range(size):
+			sum += pow(iteration_matrix[i][j], 2)
+
+
+	result = sqrt(sum)
+	return round(result, 5)
+
+print("Frobenius Norm")
+print(CalculateFrobenius(iteration_matrix))
