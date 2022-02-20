@@ -34,4 +34,33 @@ while no_exit:
             break
     rowno += 1
 
-print(iteration_matrix)
+print("Input Array")
+for i in range(size):
+    print(dominant_diagonal_array[i])
+print(value_array)
+
+print("Iteration Matrix")
+for i in range(rowno):
+    print(iteration_matrix[i])
+
+#L-1 Norm
+max =0
+for i in range(size):
+    sum =0
+    for j in range(rowno):
+        sum += iteration_matrix[j][i]
+    if(sum > max):
+        max = sum
+print("L-1 Norm: "+max)
+
+#L-Inf Norm
+max =0 
+for i in range(rowno):
+    sum =0
+    for j in range(size):
+        sum += iteration_matrix[i][j]
+    if(sum > max):
+        max = sum
+print("L-Inf Norm: "+max)
+
+#Frobenius
