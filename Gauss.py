@@ -66,7 +66,7 @@ def without_pivot(matrix,array):
                 array[j] = array[j] - const*array[i]
                 divisions += size - nonzero +1
                 multiplications += size - nonzero +1
-                additions += 
+                additions += size - nonzero +1
     
     for i in reversed(range(size)):
         ind = find_first_nonzero(matrix[i])
@@ -74,7 +74,11 @@ def without_pivot(matrix,array):
             sum =0 
             for j in range(ind+1,size):
                 sum += matrix[i][j]*solution_array[j]
+                additions += 1
+                multiplications += 1
             solution_array[i] = (array[i] - sum)/matrix[i][ind]
+            divisions += 1
+            additions +=1
 
 #With pivoting
 def with_pivot(matrix,array):
@@ -89,6 +93,9 @@ def with_pivot(matrix,array):
                 temp_row = scalar_multiplication(const,matrix[i])
                 matrix[j] = subtract_vectors(matrix[j],temp_row)
                 array[j] = array[j] - const*array[i]
+                pivot_divisions += size - nonzero +1
+                pivot_multiplications += size - nonzero +1
+                pivot_additions += size - nonzero +1
     size = len(array)
     for i in reversed(range(size)):
         ind = find_first_nonzero(matrix[i])
@@ -96,8 +103,13 @@ def with_pivot(matrix,array):
             sum =0 
             for j in range(ind+1,size):
                 sum += matrix[i][j]*solution_array[j]
+                pivot_additions += 1
+                pivot_multiplications += 1
             solution_array[i] = (array[i] - sum)/matrix[i][ind]
+            pivot_divisions += 1
+            pivot_additions +=1
 
+print("Size \t Additions \t Multiplications \t Divisions")
 #Input Array
 for i in range(10):
     additions ,multiplications, divisions  = 0,0,0
@@ -113,5 +125,7 @@ for i in range(10):
     cloned_array = deepcopy(value_array)
     print("============Without Pivoting===================")
     without_pivot(equation_matrix,value_array)
+    print(size,"\t",additions,"\t",multiplications,"\t",divisions)
     print("============With Pivoting===================")
     with_pivot(cloned_matrix,cloned_array)
+    print(size,"\t",pivot_additions,"\t",pivot_multiplications,"\t",pivot_divisions)
