@@ -1,4 +1,10 @@
 import random
+import time
+from matplotlib import pyplot
+
+def current_time_millis():
+    return round(time.time()*1000)
+
 def take_array(n,m):
     arr = []
     for i in range(0,n):
@@ -110,6 +116,8 @@ def with_pivot(matrix,array):
             pivot_additions +=1
 
 print("Size \t Additions \t Multiplications \t Divisions")
+time_array_pivot = [0]*10
+time_array = [0]*10
 #Input Array
 for i in range(10):
     additions ,multiplications, divisions  = 0,0,0
@@ -124,8 +132,16 @@ for i in range(10):
     cloned_matrix = deepcopy(equation_matrix)
     cloned_array = deepcopy(value_array)
     print("============Without Pivoting===================")
+    before = current_time_millis()
     without_pivot(equation_matrix,value_array)
+    after = current_time_millis()
+    time_array[i] = after-before
     print(size,"\t",additions,"\t",multiplications,"\t",divisions)
     print("============With Pivoting===================")
+    before = current_time_millis()
     with_pivot(cloned_matrix,cloned_array)
+    after = current_time_millis()
+    time_array_pivot[i] = after-before
     print(size,"\t",pivot_additions,"\t",pivot_multiplications,"\t",pivot_divisions)
+
+theory_values = []
