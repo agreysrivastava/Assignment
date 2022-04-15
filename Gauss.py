@@ -1,6 +1,6 @@
 import random
 import time
-from matplotlib import pyplot
+
 
 def current_time_millis():
     return round(time.time()*1000)
@@ -126,7 +126,7 @@ for i in range(10):
     equation_matrix = take_array(size,size)
     value_array = [0]*size
     for i in range(size):
-        value_array[i] = float(input())
+        value_array[i] = float(random.randint(10000,100000)/10000)
 
     from copy import deepcopy
     cloned_matrix = deepcopy(equation_matrix)
