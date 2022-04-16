@@ -13,8 +13,11 @@ def print_array(arr):
         print(arr[i])
 
 #Input array
-m = 4
-n = 3
+m = int(input("Enter Rows"))
+n = int(input("Enter Columns"))
+if m < n:
+    m,n = n,m
+
 random_array = take_array(m,n)
 print_array(random_array)
 
