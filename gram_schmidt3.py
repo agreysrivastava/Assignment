@@ -8,7 +8,6 @@ def transpose(mat,row,col):
         for j in range(row):
             temp.append(mat[j][i])
         transpose_arr.append(temp)
-    print_array(transpose_arr)
     return transpose_arr
 
 #Subtract vectors
