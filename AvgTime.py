@@ -12,7 +12,7 @@ after = current_time_millis()
 print("Addition")
 print(after-before)
 
-#Multplication logic
+#Multiplication logic
 import random
 b=1
 before = current_time_millis()
