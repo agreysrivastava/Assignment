@@ -30,8 +30,6 @@ def CalculateFrobenius(random_array,m,n):
 	for i in range(m):
 		for j in range(n):
 			sum += pow(random_array[i][j], 2)
-
-
 	result = sqrt(sum)
 	return round(result, 5)
 

@@ -1,42 +1,5 @@
 from my_library import * 
 from copy import deepcopy
-#transpose
-def transpose(mat,row,col):
-    transpose_arr = []
-    for i in range(col):
-        temp = []
-        for j in range(row):
-            temp.append(mat[j][i])
-        transpose_arr.append(temp)
-    return transpose_arr
-
-#Subtract vectors
-def subtract_vectors(a,b):
-    newarr = [0]*len(a)
-    for i in range(len(a)):
-        newarr[i] = a[i]- b[i]
-    return newarr
-
-#Add Vectors
-def add_vectors(a,b):
-    newarr = [0]*len(a)
-    for i in range(len(a)):
-        newarr[i] = a[i]+ b[i]
-    return newarr
-
-#Scalar Multiplic
-def scalar_multiplication(k,arr):
-    newarr = [0]*len(arr)
-    for i in range(len(arr)):
-        newarr[i] = arr[i]*k
-    return newarr
-
-#vector multiplication
-def vector_multplication(vecA,vecB):
-    sum = 0
-    for i in range(len(vecA)):
-        sum += vecA[i] * vecB[i]
-    return sum
 
 
 #Q calcultion
